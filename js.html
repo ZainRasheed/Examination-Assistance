@@ -1,0 +1,69 @@
+<html>
+<head> <title> ajax test</title> </head>
+<style>
+	.box{
+		border: 2px solid black;
+		width:20%;
+		padding: 10px;
+	}
+	h1{
+		color:blue;
+	}
+</style>
+
+<script>
+	var click=0;
+	function colorsss()
+	{
+		var col="red";
+		click++;
+		if(click % 3 == 0)
+			col="red";
+		if(click % 3 == 1)
+			col="aqua";
+		if(click % 3 == 2)
+			col="yellow";
+
+		document.getElementById("box1").style.backgroundColor=col;
+	}
+
+	function cand()
+	{
+		var req=new XMLHttpRequest();
+		req.onreadystatechange=function()
+		{
+			if(this.readyState==4&&this.status==200)
+			{
+				document.getElementById("box1").innerHTML=this.responseText;
+			}
+		};
+		req.open("GET","js.php");
+		req.send();
+	}
+
+	function cand_conf()
+	{
+
+		req.open("GET","js.php");
+		req.send();
+	}
+
+	function cand_sel()
+	{
+		alert("You've selected succesfull");
+		document.getElementById("box2").innerHTML=document.getElementById("this_form").elements['cand'].value;
+	}
+</script>
+<body>
+	<center><h1>List of Candidate fot the post of CR</h1>
+		<p>Gettin the list from the server</p>
+		<button id="list" onclick="cand()">List of candidates</button>
+		<button id="col" onclick="colorsss()">Change color</button><br>
+		<div class="box" id="box1">here</div>
+		<input type="submit" value="submit" onclick="cand_sel()">
+		<div class="box" id="box2">here</div>
+	</center>
+
+</body>
+
+</html>
