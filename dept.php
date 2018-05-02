@@ -5,7 +5,8 @@ if (isset ($_SESSION['sess_user']))
   ?> <script>
         function getit()
         {
-          document.getElementById("okbro").innerHTML="Logout";
+          document.getElementById("ch2").innerHTML="Logout";
+          document.getElementById("ch2").href="logout.php";
         }
   </script> <?php
 }
@@ -22,7 +23,7 @@ if (isset ($_SESSION['sess_user']))
 <link href="layout.css" rel="stylesheet" type="text/css" media="all">
 
 </head>
-<body id="top">
+<body id="top" onload="getit()">
 
 <div class="wrapper row1">
   <header id="header" class="clear">
