@@ -77,6 +77,7 @@ if ($select == 'HOD')
  {
  session_start();
  $_SESSION['sess_user']=$user;
+ $_SESSION['role']="hod";
  //Redirect Browser
  header("Location:hod_after_login.php");
  }
@@ -107,6 +108,8 @@ $query = mysqli_query($dbc, "SELECT * FROM cse_ic WHERE user='".$user."' AND pas
  {
  session_start();
  $_SESSION['sess_user']=$user;
+ $_SESSION['role']="cse_ic";
+
  //Redirect Browser
 
  header("Location:ic_after_login.php?change=0");
@@ -137,6 +140,8 @@ $query = mysqli_query($dbc, "SELECT * FROM admin WHERE user='".$user."' AND pass
  {
  session_start();
  $_SESSION['sess_user']=$user;
+ $_SESSION['role']="admin";
+
  //Redirect Browser
  header("Location:admin.php");
  }
