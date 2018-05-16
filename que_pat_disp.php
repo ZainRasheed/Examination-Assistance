@@ -5,17 +5,7 @@ die( "not logged in");
 include('connection.php');
 ?>
 <!DOCTYPE html>
-<script>
-function warning(){
-  var change=confirm("If you continue The present data will be deleted");
-  if (!change) {
-    window.location.assign("que_pat_disp.php");
-  }
-  else {
-    window.location.assign("ic_after_login.php?change=1");
-  }
-}
-</script>
+
 <html>
 <head>
 <title>Examination Assistance</title>
@@ -81,7 +71,7 @@ function warning(){
       <br>
       <b>Total Marks:</b> <?php echo $total ?>
       <br><br>
-      <a href="que_pat_disp2.php">Confirm</a> &emsp;&emsp;&emsp;&emsp; <a onclick="warning()"> Change</a>
+      <a href="que_pat_disp2.php">Confirm</a> &emsp;&emsp;&emsp;&emsp; <a onclick="warning()"> Chhhhange</a>
 
 
 </div>
@@ -113,5 +103,17 @@ function warning(){
 
 </div>
   </div>
-
+</body>
 </html>
+<script>
+function warning(){
+  var parts=<?php echo $count ?>;
+  var change=confirm("If you continue The present data will be deleted parts"+parts);
+  if (!change) {
+    window.location.assign("que_pat_disp.php");
+  }
+  else {
+    window.location.assign("ic_after_login.php?change=1&part="+parts);
+  }
+}
+</script>

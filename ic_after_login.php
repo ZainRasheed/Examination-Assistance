@@ -6,6 +6,17 @@ include('connection.php');
 if($_GET['change']){
   $query="drop table temp";
   mysqli_query($dbc,$query) or die("Couldn't drop table");
+
+  for ($i=1; $i <= $_GET['part']; $i++) {
+    if ($i==1) $table_name="a";
+    elseif ($i==2) $table_name="b";
+    elseif ($i==3) $table_name="c";
+    elseif ($i==4) $table_name="d";
+    elseif ($i==5) $table_name="e";
+    $query="drop table p".$table_name."";
+    mysqli_query($dbc,$query) or die("Couldn't drop table");
+  }
+
 }
 
 $query="select 1 from temp limit 1";

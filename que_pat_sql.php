@@ -11,6 +11,13 @@ if($val == 1) {
   mysqli_query($dbc,$query1) or die("CAnt create table");
   mysqli_query($dbc,$query2) or die("CAnt insert");
 
+  $queryPA="create table pa(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPA) or die("CAnt create table");
+  for ($i=1; $i <= $aq; $i++) {
+    $query="ALTER TABLE pa ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+
   header("Location:que_pat_disp.php");
 }
 elseif ($val == 2) {
@@ -26,6 +33,20 @@ elseif ($val == 2) {
   mysqli_query($dbc,$query1) or die("CAnt create table");
   mysqli_query($dbc,$query2) or die("CAnt insert");
   mysqli_query($dbc,$query3) or die("CAnt insert");
+
+  $queryPA="create table pa(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPA) or die("CAnt create table");
+  for ($i=1; $i <= $aq; $i++) {
+    $query="ALTER TABLE pa ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPB="create table pb(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPB) or die("CAnt create table");
+  for ($i=1; $i <= $bq; $i++) {
+    $query="ALTER TABLE pb ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+
   header("Location:que_pat_disp.php");
 
 }
@@ -47,6 +68,26 @@ elseif ($val == 3) {
   mysqli_query($dbc,$query2) or die("CAnt insert");
   mysqli_query($dbc,$query3) or die("CAnt insert");
   mysqli_query($dbc,$query4) or die("CAnt insert");
+
+  $queryPA="create table pa(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPA) or die("CAnt create table");
+  for ($i=1; $i <= $aq; $i++) {
+    $query="ALTER TABLE pa ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPB="create table pb(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPB) or die("CAnt create table");
+  for ($i=1; $i <= $bq; $i++) {
+    $query="ALTER TABLE pb ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPC="create table pc(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPC) or die("CAnt create table");
+  for ($i=1; $i <= $cq; $i++) {
+    $query="ALTER TABLE pc ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+
   header("Location:que_pat_disp.php");
 
 }
@@ -72,6 +113,32 @@ elseif ($val == 4) {
   mysqli_query($dbc,$query3) or die("CAnt insert");
   mysqli_query($dbc,$query4) or die("CAnt insert");
   mysqli_query($dbc,$query5) or die("CAnt insert");
+
+  $queryPA="create table pa(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPA) or die("CAnt create table");
+  for ($i=1; $i <= $aq; $i++) {
+    $query="ALTER TABLE pa ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPB="create table pb(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPB) or die("CAnt create table");
+  for ($i=1; $i <= $bq; $i++) {
+    $query="ALTER TABLE pb ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPC="create table pc(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPC) or die("CAnt create table");
+  for ($i=1; $i <= $cq; $i++) {
+    $query="ALTER TABLE pc ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPD="create table pd(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPD) or die("CAnt create table");
+  for ($i=1; $i <= $dq; $i++) {
+    $query="ALTER TABLE pd ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+
   header("Location:que_pat_disp.php");
 
 }
@@ -101,6 +168,38 @@ elseif ($val == 5) {
   mysqli_query($dbc,$query4) or die("CAnt insert");
   mysqli_query($dbc,$query5) or die("CAnt insert");
   mysqli_query($dbc,$query6) or die("CAnt insert");
+
+  $queryPA="create table pa(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPA) or die("CAnt create table");
+  for ($i=1; $i <= $aq; $i++) {
+    $query="ALTER TABLE pa ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPB="create table pb(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPB) or die("CAnt create table");
+  for ($i=1; $i <= $bq; $i++) {
+    $query="ALTER TABLE pb ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPC="create table pc(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPC) or die("CAnt create table");
+  for ($i=1; $i <= $cq; $i++) {
+    $query="ALTER TABLE pc ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPD="create table pd(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPD) or die("CAnt create table");
+  for ($i=1; $i <= $dq; $i++) {
+    $query="ALTER TABLE pd ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+  $queryPE="create table pe(id varchar(10) primary key)";
+  mysqli_query($dbc,$queryPE) or die("CAnt create table");
+  for ($i=1; $i <= $eq; $i++) {
+    $query="ALTER TABLE pe ADD q".$i." varchar(500)";
+    mysqli_query($dbc,$query) or die("update");
+  }
+
   header("Location:que_pat_disp.php");
 
 }

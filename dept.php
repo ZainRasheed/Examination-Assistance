@@ -60,7 +60,6 @@ if (isset ($_SESSION['sess_user']))
 <a href='mec_sub.php'>MEC</a>
 <br>
 <div id="okbro">
- <h1>gjjgfgfgjjg</h1>
 </div>
 
 

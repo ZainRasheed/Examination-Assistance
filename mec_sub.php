@@ -25,11 +25,11 @@
   <nav id="mainav" class="clear">
 
     <ul class="clear">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li class="button"><a href="index.html">Home</a></li>
 
 
 <li class ="button"><a href="login.php"> LOGIN</a></li>
-<li class ="button"><a href="dept.php">Department</a></li>
+<li class ="active"><a href="dept.php">Department</a></li>
     </ul>
 
   </nav>

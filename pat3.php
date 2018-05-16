@@ -5,7 +5,7 @@
   <p>Marks:<input required min="2" max="20" type='number' name='am' value='3'></p><hr>
 
   <label>Part B:</label>
-  <p>Number of Questions:<input requiredtype='number' name='bq' value='1' min="1" max="10"></p><br>
+  <p>Number of Questions:<input required type='number' name='bq' value='1' min="1" max="10"></p><br>
   <p>Marks:<input required min="2" max="20" type='number' name='bm' value='5'></p><hr>
 
   <label>Part C:</label><br>
