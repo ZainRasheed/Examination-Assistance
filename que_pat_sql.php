@@ -11,9 +11,9 @@ if($val == 1) {
   mysqli_query($dbc,$query1) or die("CAnt create table");
   mysqli_query($dbc,$query2) or die("CAnt insert");
 
-  $queryPA="create table pa(id varchar(10) primary key)";
+  $queryPA="create table pa(q1 varchar(500))";
   mysqli_query($dbc,$queryPA) or die("CAnt create table");
-  for ($i=1; $i <= $aq; $i++) {
+  for ($i=2; $i <= $aq; $i++) {
     $query="ALTER TABLE pa ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
@@ -34,15 +34,15 @@ elseif ($val == 2) {
   mysqli_query($dbc,$query2) or die("CAnt insert");
   mysqli_query($dbc,$query3) or die("CAnt insert");
 
-  $queryPA="create table pa(id varchar(10) primary key)";
+  $queryPA="create table pa(q1 varchar(500))";
   mysqli_query($dbc,$queryPA) or die("CAnt create table");
-  for ($i=1; $i <= $aq; $i++) {
+  for ($i=2; $i <= $aq; $i++) {
     $query="ALTER TABLE pa ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPB="create table pb(id varchar(10) primary key)";
+  $queryPB="create table pb(q1 varchar(500))";
   mysqli_query($dbc,$queryPB) or die("CAnt create table");
-  for ($i=1; $i <= $bq; $i++) {
+  for ($i=2; $i <= $bq; $i++) {
     $query="ALTER TABLE pb ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
@@ -69,21 +69,21 @@ elseif ($val == 3) {
   mysqli_query($dbc,$query3) or die("CAnt insert");
   mysqli_query($dbc,$query4) or die("CAnt insert");
 
-  $queryPA="create table pa(id varchar(10) primary key)";
+  $queryPA="create table pa(q1 varchar(500))";
   mysqli_query($dbc,$queryPA) or die("CAnt create table");
-  for ($i=1; $i <= $aq; $i++) {
+  for ($i=2; $i <= $aq; $i++) {
     $query="ALTER TABLE pa ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPB="create table pb(id varchar(10) primary key)";
+  $queryPB="create table pb(q1 varchar(500))";
   mysqli_query($dbc,$queryPB) or die("CAnt create table");
-  for ($i=1; $i <= $bq; $i++) {
+  for ($i=2; $i <= $bq; $i++) {
     $query="ALTER TABLE pb ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPC="create table pc(id varchar(10) primary key)";
+  $queryPC="create table pc(q1 varchar(500))";
   mysqli_query($dbc,$queryPC) or die("CAnt create table");
-  for ($i=1; $i <= $cq; $i++) {
+  for ($i=2; $i <= $cq; $i++) {
     $query="ALTER TABLE pc ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
@@ -114,27 +114,27 @@ elseif ($val == 4) {
   mysqli_query($dbc,$query4) or die("CAnt insert");
   mysqli_query($dbc,$query5) or die("CAnt insert");
 
-  $queryPA="create table pa(id varchar(10) primary key)";
+  $queryPA="create table pa(q1 varchar(500))";
   mysqli_query($dbc,$queryPA) or die("CAnt create table");
-  for ($i=1; $i <= $aq; $i++) {
+  for ($i=2; $i <= $aq; $i++) {
     $query="ALTER TABLE pa ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPB="create table pb(id varchar(10) primary key)";
+  $queryPB="create table pb(q1 varchar(500))";
   mysqli_query($dbc,$queryPB) or die("CAnt create table");
-  for ($i=1; $i <= $bq; $i++) {
+  for ($i=2; $i <= $bq; $i++) {
     $query="ALTER TABLE pb ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPC="create table pc(id varchar(10) primary key)";
+  $queryPC="create table pc(q1 varchar(500))";
   mysqli_query($dbc,$queryPC) or die("CAnt create table");
-  for ($i=1; $i <= $cq; $i++) {
+  for ($i=2; $i <= $cq; $i++) {
     $query="ALTER TABLE pc ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPD="create table pd(id varchar(10) primary key)";
+  $queryPD="create table pd(q1 varchar(500))";
   mysqli_query($dbc,$queryPD) or die("CAnt create table");
-  for ($i=1; $i <= $dq; $i++) {
+  for ($i=2; $i <= $dq; $i++) {
     $query="ALTER TABLE pd ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
@@ -169,33 +169,33 @@ elseif ($val == 5) {
   mysqli_query($dbc,$query5) or die("CAnt insert");
   mysqli_query($dbc,$query6) or die("CAnt insert");
 
-  $queryPA="create table pa(id varchar(10) primary key)";
+  $queryPA="create table pa(q1 varchar(500))";
   mysqli_query($dbc,$queryPA) or die("CAnt create table");
-  for ($i=1; $i <= $aq; $i++) {
+  for ($i=2; $i <= $aq; $i++) {
     $query="ALTER TABLE pa ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPB="create table pb(id varchar(10) primary key)";
+  $queryPB="create table pb(q1 varchar(500))";
   mysqli_query($dbc,$queryPB) or die("CAnt create table");
-  for ($i=1; $i <= $bq; $i++) {
+  for ($i=2; $i <= $bq; $i++) {
     $query="ALTER TABLE pb ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPC="create table pc(id varchar(10) primary key)";
+  $queryPC="create table pc(q1 varchar(500))";
   mysqli_query($dbc,$queryPC) or die("CAnt create table");
-  for ($i=1; $i <= $cq; $i++) {
+  for ($i=2; $i <= $cq; $i++) {
     $query="ALTER TABLE pc ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPD="create table pd(id varchar(10) primary key)";
+  $queryPD="create table pd(q1 varchar(500))";
   mysqli_query($dbc,$queryPD) or die("CAnt create table");
-  for ($i=1; $i <= $dq; $i++) {
+  for ($i=2; $i <= $dq; $i++) {
     $query="ALTER TABLE pd ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPE="create table pe(id varchar(10) primary key)";
+  $queryPE="create table pe(q1 varchar(500))";
   mysqli_query($dbc,$queryPE) or die("CAnt create table");
-  for ($i=1; $i <= $eq; $i++) {
+  for ($i=2; $i <= $eq; $i++) {
     $query="ALTER TABLE pe ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
