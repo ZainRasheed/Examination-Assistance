@@ -55,13 +55,11 @@ if (isset ($_SESSION['sess_user']))
 <div class="wrapper row3">
   <main class="container clear">
 
-<a href='cse_sub.php'>CSE</a>
-<br>
+<h1><a href='cse_sub.php'>CSE</a>
+<br><br>
 <a href='mec_sub.php'>MEC</a>
 <br>
-<div id="okbro">
-</div>
-
+</h1>
 
 </div>
 

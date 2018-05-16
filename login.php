@@ -64,100 +64,96 @@ $user = $_POST['user'];
 if ($select == 'HOD')
 {
 
- $query = mysqli_query($dbc, "SELECT * FROM hod WHERE user='".$user."' AND pass='".$pass."'");
- $numrows = mysqli_num_rows($query);
- if($numrows !=0)
- {
- while($row = mysqli_fetch_assoc($query))
- {
- $dbusername=$row['user'];
- $dbpassword=$row['pass'];
- }
- if($user == $dbusername && $pass == $dbpassword)
- {
- session_start();
- $_SESSION['sess_user']=$user;
- $_SESSION['role']="hod";
- //Redirect Browser
- header("Location:hod_after_login.php");
- }
+ $query = mysqli_query($dbc, "SELECT * FROM hod");
+ while($row = mysqli_fetch_array($query))
+  {
+    $dbusername=$row['user'];
+    $dbname=$row['name'];
+    $dbpassword=$row['pass'];
+    $dbsub=$row['sub'];
 
- else
- {
- echo "Invalid Username or Password!";
+  if($user == $row['user'])
+  {
+    if($pass ==$row['pass'])
+    {
+      session_start();
+      $_SESSION['sess_user']=$user;
+      $_SESSION['role']="hod";
+      $_SESSION['sess_name']=$dbname;
+      $_SESSION['sess_sub']=$dbsub;
+      //Redirect Browser
+      header("Location:hod_after_login.php");
+    }
+   else
+     {
+       echo"<script>alert('invalid password');</script>";
+     }
+  }
  }
- }
- else
- {
- echo "Required All fields!";
- }
-
+ echo "<script>alert('invalid username');</script>";
 }
+
 else if ($select == 'IC')
 {
-$query = mysqli_query($dbc, "SELECT * FROM cse_ic WHERE user='".$user."' AND pass='".$pass."'");
- $numrows = mysqli_num_rows($query);
- if($numrows !=0)
- {
- while($row = mysqli_fetch_assoc($query))
+$query = mysqli_query($dbc, "SELECT * FROM cse_ic");
+while($row = mysqli_fetch_array($query))
  {
  $dbusername=$row['user'];
+ $dbname=$row['name'];
  $dbpassword=$row['pass'];
- }
- if($user == $dbusername && $pass == $dbpassword)
- {
- session_start();
- $_SESSION['sess_user']=$user;
- $_SESSION['role']="cse_ic";
+ $dbsub=$row['sub'];
 
+ if($user == $row['user'])
+ {
+   if($pass ==$row['pass'])
+   {
+     session_start();
+     $_SESSION['sess_user']=$user;
+     $_SESSION['role']="cse_ic";
+     $_SESSION['sess_name']=$dbname;
+     $_SESSION['sess_sub']=$dbsub;
  //Redirect Browser
+    header("Location:ic_after_login.php?change=0");
+   }
+  else
+    {
+      echo"<script>alert('invalid password');</script>";
+    }
+ }
+}
+echo "<script>alert('invalid username');</script>";
 
- header("Location:ic_after_login.php?change=0");
- }
-
- else
- {
- echo "Invalid Username or Password!";
- }
- }
- else
- {
- echo "Required All fields!";
- }
 }
 else
 {
-$query = mysqli_query($dbc, "SELECT * FROM admin WHERE user='".$user."' AND pass='".$pass."'");
- $numrows = mysqli_num_rows($query);
- if($numrows !=0)
- {
- while($row = mysqli_fetch_assoc($query))
+$query = mysqli_query($dbc, "SELECT * FROM admin");
+ while($row = mysqli_fetch_array($query))
  {
  $dbusername=$row['user'];
  $dbpassword=$row['pass'];
- }
- if($user == $dbusername && $pass == $dbpassword)
- {
- session_start();
- $_SESSION['sess_user']=$user;
- $_SESSION['role']="admin";
+  if($user == $row['user'])
+  {
+    if($pass ==$row['pass'])
+    {
+      session_start();
+      $_SESSION['sess_user']=$user;
+      $_SESSION['sess_name']='Admin';
 
- //Redirect Browser
- header("Location:admin.php");
+  //Redirect Browser
+     header("Location:admin.php");
+    }
+   else
+     {
+       echo"<script>alert('invalid password');</script>";
+     }
+  }
  }
- else
- {
- echo "Invalid Username or Password!";
+ echo "<script>alert('invalid username');</script>";
+
  }
 }
- else
- {
- echo "Required All fields!";
- }
-}}
 }
-
-?>
+ ?>
 
 
 
