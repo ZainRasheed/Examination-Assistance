@@ -124,5 +124,5 @@ $user = $_POST['user'];
 
 </div>
   </div>
-</body>
+
 </html>

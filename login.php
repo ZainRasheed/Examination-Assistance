@@ -82,7 +82,7 @@ if ($select == 'HOD')
       $_SESSION['sess_name']=$dbname;
       $_SESSION['sess_sub']=$dbsub;
       //Redirect Browser
-      header("Location:hod_after_login.php");
+      header("Location:sam.php");
     }
    else
      {
