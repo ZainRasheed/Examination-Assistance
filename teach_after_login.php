@@ -84,7 +84,7 @@ if ( !$_SESSION['role']="teach") {
     <b>Number of questions:</b> <?php echo $row['noq']; ?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <b> Marks:</b><?php echo $row['marks']; ?><br>
 
     <?php for ($i=1; $i <= $row['noq']; $i++) {
-      echo "<b>Question ".$i."</b><textarea name='q".$count.$i."' rows='5' cols='100'></textarea><br>";
+      echo "<b>Question ".$i."</b><textarea required name='q".$count.$i."' rows='5' cols='100'></textarea><br>";
     }
     ?>
     <?php echo "<hr>"; } ?>
