@@ -16,12 +16,11 @@ if (isset ($_SESSION['sess_user']))
 
 <!DOCTYPE html>
 <?php
-session_start();
 if ( !isset ($_SESSION['sess_user']))
 die( "not logged in");
 include('connection.php');
-if ( !$_SESSION['role']="hod") {
-  die("Not Hod");
+if ( !$_SESSION['role']="teach") {
+  die("Not a teacher");
 }
 ?>
 <html>
@@ -49,10 +48,10 @@ if ( !$_SESSION['role']="hod") {
   <nav id="mainav" class="clear">
 
     <ul class="clear">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li class="active"><a href="teach_after_login.php">Home</a></li>
 
 
-<li class ="button"><a href="login.php"> LOGIN</a></li>
+<li class ="button"><a id="ch2" href="login.php"> LOGIN</a></li>
 <li class ="button"><a href="dept.php">Department</a></li>
     </ul>
 
@@ -62,16 +61,36 @@ if ( !$_SESSION['role']="hod") {
 
 <div class="wrapper row3">
   <main class="container clear">
+    <form class="" action="test1.php" method="post">
 
+    <?php
+      include("connection.php");
+      $query="select * from temp";
+      $result=mysqli_query($dbc,$query) or die("Couldn't retrievr from table / Table doesn't exist");
+      $count=0;
+    ?>
+    The selected paper pattern<br>
 
-<p>
+    <?php  while($row=mysqli_fetch_array($result)){
+      $count = $count + 1;
+    ?>
 
+    <h3><b>Part <?php if ($count==1) echo "A";
+                   elseif ($count==2) echo "B";
+                   elseif ($count==3) echo "C";
+                   elseif ($count==4) echo "D";
+                   elseif ($count==5) echo "E";
+              ?> :</b></h3>
+    <b>Number of questions:</b> <?php echo $row['noq']; ?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <b> Marks:</b><?php echo $row['marks']; ?><br>
 
-  The Question paper automation is developed to replace the manual setting of the question paper and automate the whole process of getting different unique questions from teachers and generate a randomized, fast and secure question paper.<br>
-  The website will allow the respective IC to set the question paper pattern for the course and the IC and teachers are allowed to input their questions according to the question paper pattern set by the IC (assuming the question inputs to be different from different teachers and IC). Viewing and editing of the questions by the HOD, IC and teachers. Finally, automatic question paper generation by the questions that was taken as an input.<br>
-  Assuming the questions taken as input from different types of users are different from each other. The question paper pattern is set by the IC, therefore questions can be taken as input only if the IC sets the question paper pattern, hence dependency for taking questions as input. Assuming the profile of the users to be with us.</p>
-
-
+    <?php for ($i=1; $i <= $row['noq']; $i++) {
+      echo "<b>Question ".$i."</b><textarea name='q".$count.$i."' rows='5' cols='100'></textarea><br>";
+    }
+    ?>
+    <?php echo "<hr>"; } ?>
+    <br>
+    <input type="submit" name="" value="Verify">
+    </form>
 </div>
 
 
