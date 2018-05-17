@@ -19,7 +19,7 @@ if (isset ($_SESSION['sess_user']))
 if ( !isset ($_SESSION['sess_user']))
 die( "not logged in");
 include('connection.php');
-if ( !$_SESSION['role']="teach") {
+if ( !$_SESSION['role']=="teach") {
   die("Not a teacher");
 }
 ?>
@@ -61,7 +61,7 @@ if ( !$_SESSION['role']="teach") {
 
 <div class="wrapper row3">
   <main class="container clear">
-    <form class="" action="" method="post">
+    <form class="" action="test1.php" method="post">
 
     <?php
       include("connection.php");
@@ -85,7 +85,7 @@ if ( !$_SESSION['role']="teach") {
 
     <?php for ($i=1; $i <= $row['noq']; $i++) {
       echo "<b>Question ".$i."</b><br>";
-      echo $_POST["q".$count.$i];
+      echo $_SESSION["q".$count.$i]=$_POST["q".$count.$i];
       echo "<br><br>";
     }
     ?>
@@ -93,35 +93,9 @@ if ( !$_SESSION['role']="teach") {
     <br>
     <input type="submit" name="action" value="Submit">
     <br>
-    <input type="submit" name="action" value="Change">
+    <a href="que_pap_disp2.php"> <button type="button" name="button">Verify</button> </a>
     </form>
 </div>
-
-<?php
-
-if ($_POST['action']=="Submit") {
-  $count=0;
-  while ($row=mysqli_fetch_array($result)) {
-    $count=$count+1;
-    if ($count==1) $table='a';
-    elseif ($count==2) $table='b';
-    elseif ($count==3) $table='c';
-    elseif ($count==4) $table='d';
-    elseif ($count==5) $table='e';
-  $query="insert into p".$table." values(".$_POST["q".$count."1"];
-  for ($i=2; $i <= $row['noq']; $i++) {
-    $query=$query.",".$_POST["q".$count.$i];
-  }
-  $query=$query.")";
-  echo "<br>";
-  echo $query;
-  }
-}
-
- ?>
-
-
-
 
 
 

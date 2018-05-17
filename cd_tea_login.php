@@ -85,7 +85,7 @@ $user = $_POST['user'];
  }
  echo "<script>alert('invalid username');</script>";
 }
-
+}
 ?>
 
 

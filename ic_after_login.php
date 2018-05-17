@@ -13,7 +13,7 @@ if($_GET['change']){
     elseif ($i==4) $table_name="d";
     elseif ($i==5) $table_name="e";
     $query="drop table p".$table_name."";
-    mysqli_query($dbc,$query) or die("Couldn't drop table");
+    mysqli_query($dbc,$query) or die("Couldn't drop part table");
   }
 }
 

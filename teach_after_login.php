@@ -10,8 +10,6 @@ if (isset ($_SESSION['sess_user']))
         }
   </script> <?php
 }
-//die( "not logged in");
-//include('connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +17,7 @@ if (isset ($_SESSION['sess_user']))
 if ( !isset ($_SESSION['sess_user']))
 die( "not logged in");
 include('connection.php');
-if ( !$_SESSION['role']="teach") {
+if ( !$_SESSION['role']=="teach") {
   die("Not a teacher");
 }
 ?>
@@ -39,8 +37,6 @@ if ( !$_SESSION['role']="teach") {
       <h1><a href="index.html">Examination Assistance</a></h1>
     </div>
 
-
-
   </header>
 </div>
 
@@ -51,7 +47,7 @@ if ( !$_SESSION['role']="teach") {
       <li class="active"><a href="teach_after_login.php">Home</a></li>
 
 
-<li class ="button"><a id="ch2" href="login.php"> LOGIN</a></li>
+<li class ="button"><a id="ch1" href="login.php"> LOGIN</a></li>
 <li class ="button"><a href="dept.php">Department</a></li>
     </ul>
 
@@ -61,7 +57,7 @@ if ( !$_SESSION['role']="teach") {
 
 <div class="wrapper row3">
   <main class="container clear">
-    <form class="" action="test1.php" method="post">
+    <form class="" action="que_pap_disp.php" method="post">
 
     <?php
       include("connection.php");

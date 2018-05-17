@@ -71,7 +71,7 @@ $user = $_POST['user'];
     {
       session_start();
       $_SESSION['sess_user']=$user;
-      $_SESSION['role']="ai_tea";
+      $_SESSION['role']="mv_tea";
       $_SESSION['sess_name']=$dbname;
       $_SESSION['sess_sub']=$dbsub;
       //Redirect Browser
@@ -85,7 +85,7 @@ $user = $_POST['user'];
  }
  echo "<script>alert('invalid username');</script>";
 }
-
+}
 ?>
 
 

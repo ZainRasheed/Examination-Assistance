@@ -1,11 +1,26 @@
 <?php
 session_start();
+if (isset ($_SESSION['sess_user']))
+{
+  ?> <script>
+        function getit()
+        {
+          document.getElementById("ch2").innerHTML="Logout";
+          document.getElementById("ch2").href="logout.php";
+        }
+  </script> <?php
+}
+?>
+
+<!DOCTYPE html>
+<?php
 if ( !isset ($_SESSION['sess_user']))
 die( "not logged in");
 include('connection.php');
+if ( !$_SESSION['role']=="teach") {
+  die("Not a teacher");
+}
 ?>
-<!DOCTYPE html>
-
 <html>
 <head>
 <title>Examination Assistance</title>
@@ -22,8 +37,6 @@ include('connection.php');
       <h1><a href="index.html">Examination Assistance</a></h1>
     </div>
 
-
-
   </header>
 </div>
 
@@ -31,10 +44,10 @@ include('connection.php');
   <nav id="mainav" class="clear">
 
     <ul class="clear">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li class="active"><a href="teach_after_login.php">Home</a></li>
 
 
-<li class ="button"><a href="logout.php"> LOGout</a></li>
+<li class ="button"><a id="ch1" href="login.php"> LOGIN</a></li>
 <li class ="button"><a href="dept.php">Department</a></li>
     </ul>
 
@@ -44,19 +57,18 @@ include('connection.php');
 
 <div class="wrapper row3">
   <main class="container clear">
+    <form class="" action="que_pap_disp.php" method="post">
 
     <?php
       include("connection.php");
       $query="select * from temp";
       $result=mysqli_query($dbc,$query) or die("Couldn't retrievr from table / Table doesn't exist");
       $count=0;
-      $total=0;
     ?>
     The selected paper pattern<br>
 
     <?php  while($row=mysqli_fetch_array($result)){
       $count = $count + 1;
-      $total=$total+($row['noq']*$row['marks']);
     ?>
 
     <h3><b>Part <?php if ($count==1) echo "A";
@@ -65,15 +77,16 @@ include('connection.php');
                    elseif ($count==4) echo "D";
                    elseif ($count==5) echo "E";
               ?> :</b></h3>
-      <b>Number of questions:</b> <?php echo $row['noq']; ?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <b> Marks:</b><?php echo $row['marks']; ?>
-      <hr>
-      <?php } ?>
-      <br>
-      <b>Total Marks:</b> <?php echo $total ?>
-      <br><br>
-      <a href="que_pat_disp2.php">Confirm</a> &emsp;&emsp;&emsp;&emsp; <a onclick="warning()"> Change</a>
+    <b>Number of questions:</b> <?php echo $row['noq']; ?> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <b> Marks:</b><?php echo $row['marks']; ?><br>
 
-
+    <?php for ($i=1; $i <= $row['noq']; $i++) {
+      echo "<b>Question ".$i."</b><input style='height:70px;' type=text maxlength='500' size='100' required name='q".$count.$i."' value='".$_SESSION['q'.$count.$i]."'><br>";
+    }
+    ?>
+    <?php echo "<hr>"; } ?>
+    <br>
+    <input type="submit" name="" value="Verify">
+    </form>
 </div>
 
 
@@ -93,8 +106,9 @@ include('connection.php');
 
 
 
-  </div>
+
   </footer>
+</div>
 </div>
 <div class="wrapper row5">
   <div id="copyright" class="clear">
@@ -103,17 +117,5 @@ include('connection.php');
 
 </div>
   </div>
-</body>
+
 </html>
-<script>
-function warning(){
-  var parts=<?php echo $count ?>;
-  var change=confirm("If you continue The present data will be deleted parts"+parts);
-  if (!change) {
-    window.location.assign("que_pat_disp.php");
-  }
-  else {
-    window.location.assign("ic_after_login.php?change=1&part="+parts);
-  }
-}
-</script>

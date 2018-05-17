@@ -131,7 +131,7 @@ elseif ($val == 4) {
     $query="ALTER TABLE pc ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  $queryPD=create table pd(q1 varchar(500))";
+  $queryPD="create table pd(q1 varchar(500))";
   mysqli_query($dbc,$queryPD) or die("CAnt create table");
   for ($i=2; $i <= $dq; $i++) {
     $query="ALTER TABLE pd ADD q".$i." varchar(500)";
@@ -197,7 +197,7 @@ elseif ($val == 5) {
     $query="ALTER TABLE pe ADD q".$i." varchar(500)";
     mysqli_query($dbc,$query) or die("update");
   }
-  
+
   header("Location:que_pat_disp.php");
 
 }
