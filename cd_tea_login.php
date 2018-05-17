@@ -57,34 +57,33 @@ if(isset($_POST["submit"])){
 $user = $_POST['user'];
  $pass = $_POST['pass'];
 
- $query = mysqli_query($dbc, "SELECT * FROM cd_tea WHERE user='".$user."' AND pass='".$pass."'");
- $numrows = mysqli_num_rows($query);
- if($numrows !=0)
- {
- while($row = mysqli_fetch_assoc($query))
- {
- $dbusername=$row['user'];
- $dbpassword=$row['pass'];
- }
- if($user == $dbusername && $pass == $dbpassword)
- {
- session_start();
- $_SESSION['sess_user']=$user;
- //Redirect Browser
- header("Location:cd_after_login.php");
- }
+ $query = mysqli_query($dbc, "SELECT * FROM cd_tea");
+ while($row = mysqli_fetch_array($query))
+  {
+    $dbusername=$row['user'];
+    $dbname=$row['name'];
+    $dbpassword=$row['pass'];
+    $dbsub=$row['sub'];
 
- else
- {
- echo "Invalid Username or Password!";
+  if($user == $row['user'])
+  {
+    if($pass ==$row['pass'])
+    {
+      session_start();
+      $_SESSION['sess_user']=$user;
+      $_SESSION['role']="cd_tea";
+      $_SESSION['sess_name']=$dbname;
+      $_SESSION['sess_sub']=$dbsub;
+      //Redirect Browser
+      header("Location:teach_after_login.php");
+    }
+   else
+     {
+       echo"<script>alert('invalid password');</script>";
+     }
+  }
  }
- }
- else
- {
- echo "Required All fields!";
- }
-
-}
+ echo "<script>alert('invalid username');</script>";
 }
 
 ?>

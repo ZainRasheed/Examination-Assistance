@@ -71,7 +71,7 @@ include('connection.php');
       <br>
       <b>Total Marks:</b> <?php echo $total ?>
       <br><br>
-      <a href="que_pat_disp2.php">Confirm</a> &emsp;&emsp;&emsp;&emsp; <a onclick="warning()"> Chhhhange</a>
+      <a href="que_pat_disp2.php">Confirm</a> &emsp;&emsp;&emsp;&emsp; <a onclick="warning()"> Change</a>
 
 
 </div>
@@ -107,13 +107,12 @@ include('connection.php');
 </html>
 <script>
 function warning(){
-  var parts=<?php echo $count ?>;
-  var change=confirm("If you continue The present data will be deleted parts"+parts);
+  var change=confirm("If you continue The present data will be deleted");
   if (!change) {
     window.location.assign("que_pat_disp.php");
   }
   else {
-    window.location.assign("ic_after_login.php?change=1&part="+parts);
+    window.location.assign("ic_after_login.php?change=1");
   }
 }
 </script>

@@ -6,9 +6,8 @@ include('connection.php');
 if($_GET['change']){
   $query="drop table temp";
   mysqli_query($dbc,$query) or die("Couldn't drop table");
-
   for ($i=1; $i <= $_GET['part']; $i++) {
-    if ($i==1) $table_name="a";
+   if ($i==1) $table_name="a";
     elseif ($i==2) $table_name="b";
     elseif ($i==3) $table_name="c";
     elseif ($i==4) $table_name="d";
@@ -16,7 +15,6 @@ if($_GET['change']){
     $query="drop table p".$table_name."";
     mysqli_query($dbc,$query) or die("Couldn't drop table");
   }
-
 }
 
 $query="select 1 from temp limit 1";
@@ -150,16 +148,34 @@ if ($result=mysqli_query($dbc,$query)) {
 
 <div class="wrapper row3">
   <main class="container clear">
+<style>
+#ic_info
+{
+  float:right;
+}
+</style>
 
+<div id="ic_info">
 
-    <label>Select number of parts</label>
+<?php
+$n= $_SESSION['sess_name'];
+echo "Name: $n<br>";
+$id= $_SESSION['sess_user'];
+echo "ID No: $id<br>";
+$s= $_SESSION['sess_sub'];
+echo "Course Name: $s<br>";
+ ?>
+</div>
+
+    <label>Select Number of Parts</label>
     <br>
-      <div id="show"><button onclick="Show()">click here</button></div>
+      <div id="show"><button onclick="Show()">Select </button></div>
+      <br>
       <input type="submit" value="Start" onclick="start()">
     <br>
     <br>
     <div id="pattern_display">
-        <br>here
+        here
     </div>
 
 
